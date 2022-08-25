@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.464100000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="201"/>
+	<queryString>
+		<![CDATA[SELECT
+     *,
+     nuevo_ite.`id_ite` AS nuevo_ite_id_ite,
+     nuevo_ite.`id_cliente` AS nuevo_ite_id_cliente,
+     nuevo_ite.`id_dis` AS nuevo_ite_id_dis,
+     nuevo_ite.`estado` AS nuevo_ite_estado,
+     nuevo_ite.`fecha_ingreso` AS nuevo_ite_fecha_ingreso,
+     nuevo_ite.`fecha_entrega` AS nuevo_ite_fecha_entrega,
+     nuevo_ite.`id_pc` AS nuevo_ite_id_pc,
+     nuevo_ite.`id_laptop` AS nuevo_ite_id_laptop,
+     nuevo_ite.`id_impresora` AS nuevo_ite_id_impresora,
+     nuevo_ite.`id_accesorios_dispositivo` AS nuevo_ite_id_accesorios_dispositivo,
+     nuevo_ite.`observacion` AS nuevo_ite_observacion,
+     nuevo_ite.`cambios_ralizados` AS nuevo_ite_cambios_ralizados,
+     nuevo_ite.`total` AS nuevo_ite_total,
+     nuevo_ite.`a_cuenta` AS nuevo_ite_a_cuenta,
+     nuevo_ite.`saldo` AS nuevo_ite_saldo,
+     cliente.`id_cliente` AS cliente_id_cliente,
+     cliente.`nombre_cliente` AS cliente_nombre_cliente,
+     laptop.`id_laptop` AS laptop_id_laptop,
+     laptop.`id_marca_dispositivo` AS laptop_id_marca_dispositivo,
+     laptop.`alma_disco` AS laptop_alma_disco,
+     laptop.`carac_procesador` AS laptop_carac_procesador,
+     laptop.`modelo` AS laptop_modelo,
+     laptop.`alma_ram` AS laptop_alma_ram,
+     pc.`id_pc` AS pc_id_pc,
+     pc.`id_marca_dispositivo` AS pc_id_marca_dispositivo,
+     pc.`alma_ram` AS pc_alma_ram,
+     pc.`alma_disco` AS pc_alma_disco,
+     pc.`alma_tarjetatavi` AS pc_alma_tarjetatavi,
+     impresora.`id_impresora` AS impresora_id_impresora,
+     impresora.`modelo` AS impresora_modelo,
+     nueva_acce.`id_accesorios_dispositivo` AS nueva_acce_id_accesorios_dispositivo,
+     nueva_acce.`cargador` AS nueva_acce_cargador,
+     nueva_acce.`web_cam` AS nueva_acce_web_cam,
+     nueva_acce.`bateria` AS nueva_acce_bateria,
+     nueva_acce.`bluetooth` AS nueva_acce_bluetooth,
+     nueva_acce.`red` AS nueva_acce_red,
+     nueva_acce.`accesori` AS nueva_acce_accesori,
+     nueva_acce.`descripcion` AS nueva_acce_descripcion,
+     cliente.`numero_documento` AS cliente_numero_documento
+FROM
+     `cliente` cliente INNER JOIN `nuevo_ite` nuevo_ite ON cliente.`id_cliente` = nuevo_ite.`id_cliente`
+     INNER JOIN `laptop` laptop ON nuevo_ite.`id_laptop` = laptop.`id_laptop`
+     INNER JOIN `pc` pc ON nuevo_ite.`id_pc` = pc.`id_pc`
+     INNER JOIN `impresora` impresora ON nuevo_ite.`id_impresora` = impresora.`id_impresora`
+     INNER JOIN `nueva_acce` nueva_acce ON nuevo_ite.`id_accesorios_dispositivo` = nueva_acce.`id_accesorios_dispositivo`]]>
+	</queryString>
+	<field name="id_cliente" class="java.lang.String"/>
+	<field name="nombre_cliente" class="java.lang.String"/>
+	<field name="tipo_documento" class="java.lang.String"/>
+	<field name="numero_documento" class="java.lang.String"/>
+	<field name="telefono" class="java.lang.String"/>
+	<field name="id_ite" class="java.lang.String"/>
+	<field name="id_dis" class="java.lang.String"/>
+	<field name="estado" class="java.lang.String"/>
+	<field name="fecha_ingreso" class="java.sql.Date"/>
+	<field name="fecha_entrega" class="java.lang.String"/>
+	<field name="id_pc" class="java.lang.String"/>
+	<field name="id_laptop" class="java.lang.String"/>
+	<field name="id_impresora" class="java.lang.String"/>
+	<field name="id_accesorios_dispositivo" class="java.lang.String"/>
+	<field name="observacion" class="java.lang.String"/>
+	<field name="cambios_ralizados" class="java.lang.String"/>
+	<field name="total" class="java.math.BigDecimal"/>
+	<field name="a_cuenta" class="java.math.BigDecimal"/>
+	<field name="saldo" class="java.math.BigDecimal"/>
+	<field name="id_marca_dispositivo" class="java.lang.String"/>
+	<field name="id_procesador" class="java.lang.String"/>
+	<field name="id_disco" class="java.lang.String"/>
+	<field name="alma_disco" class="java.lang.String"/>
+	<field name="carac_procesador" class="java.lang.String"/>
+	<field name="modelo" class="java.lang.String"/>
+	<field name="id_ram" class="java.lang.String"/>
+	<field name="alma_ram" class="java.lang.String"/>
+	<field name="pantalla" class="java.lang.String"/>
+	<field name="cararac_procesador" class="java.lang.String"/>
+	<field name="id_placa" class="java.lang.String"/>
+	<field name="fuente_poder" class="java.lang.String"/>
+	<field name="wats_poder" class="java.lang.String"/>
+	<field name="id_tarjetavi" class="java.lang.String"/>
+	<field name="alma_tarjetatavi" class="java.lang.String"/>
+	<field name="id_marca_impresora" class="java.lang.String"/>
+	<field name="tipo_impresion" class="java.lang.String"/>
+	<field name="descripcion" class="java.lang.String"/>
+	<field name="fallos" class="java.lang.String"/>
+	<field name="cargador" class="java.lang.String"/>
+	<field name="web_cam" class="java.lang.String"/>
+	<field name="bateria" class="java.lang.String"/>
+	<field name="bluetooth" class="java.lang.String"/>
+	<field name="red" class="java.lang.String"/>
+	<field name="accesori" class="java.lang.String"/>
+	<field name="color" class="java.lang.String"/>
+	<field name="nuevo_ite_id_ite" class="java.lang.String"/>
+	<field name="nuevo_ite_id_cliente" class="java.lang.String"/>
+	<field name="nuevo_ite_id_dis" class="java.lang.String"/>
+	<field name="nuevo_ite_estado" class="java.lang.String"/>
+	<field name="nuevo_ite_fecha_ingreso" class="java.sql.Date"/>
+	<field name="nuevo_ite_fecha_entrega" class="java.lang.String"/>
+	<field name="nuevo_ite_id_pc" class="java.lang.String"/>
+	<field name="nuevo_ite_id_laptop" class="java.lang.String"/>
+	<field name="nuevo_ite_id_impresora" class="java.lang.String"/>
+	<field name="nuevo_ite_id_accesorios_dispositivo" class="java.lang.String"/>
+	<field name="nuevo_ite_observacion" class="java.lang.String"/>
+	<field name="nuevo_ite_cambios_ralizados" class="java.lang.String"/>
+	<field name="nuevo_ite_total" class="java.math.BigDecimal"/>
+	<field name="nuevo_ite_a_cuenta" class="java.math.BigDecimal"/>
+	<field name="nuevo_ite_saldo" class="java.math.BigDecimal"/>
+	<field name="cliente_id_cliente" class="java.lang.String"/>
+	<field name="cliente_nombre_cliente" class="java.lang.String"/>
+	<field name="laptop_id_laptop" class="java.lang.String"/>
+	<field name="laptop_id_marca_dispositivo" class="java.lang.String"/>
+	<field name="laptop_alma_disco" class="java.lang.String"/>
+	<field name="laptop_carac_procesador" class="java.lang.String"/>
+	<field name="laptop_modelo" class="java.lang.String"/>
+	<field name="laptop_alma_ram" class="java.lang.String"/>
+	<field name="pc_id_pc" class="java.lang.String"/>
+	<field name="pc_id_marca_dispositivo" class="java.lang.String"/>
+	<field name="pc_alma_ram" class="java.lang.String"/>
+	<field name="pc_alma_disco" class="java.lang.String"/>
+	<field name="pc_alma_tarjetatavi" class="java.lang.String"/>
+	<field name="impresora_id_impresora" class="java.lang.String"/>
+	<field name="impresora_modelo" class="java.lang.String"/>
+	<field name="nueva_acce_id_accesorios_dispositivo" class="java.lang.String"/>
+	<field name="nueva_acce_cargador" class="java.lang.String"/>
+	<field name="nueva_acce_web_cam" class="java.lang.String"/>
+	<field name="nueva_acce_bateria" class="java.lang.String"/>
+	<field name="nueva_acce_bluetooth" class="java.lang.String"/>
+	<field name="nueva_acce_red" class="java.lang.String"/>
+	<field name="nueva_acce_accesori" class="java.lang.String"/>
+	<field name="nueva_acce_descripcion" class="java.lang.String"/>
+	<field name="cliente_numero_documento" class="java.lang.String"/>
+	<variable name="id_ite_1" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{id_ite}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="20" width="555" height="38"/>
+				<textElement textAlignment="Center">
+					<font fontName="Century Schoolbook" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DATOS DEL REGISTRO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="84" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Codigo iterinario:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="462" y="0" width="27" height="15"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RUT:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="499" y="0" width="56" height="15"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[00000000000]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="74" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{nuevo_ite_id_ite}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="63" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="74" height="15"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Codigo del Cliente]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="84" y="0" width="132" height="15"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{id_cliente}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="20" width="84" height="15"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre del Cliente:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="84" y="20" width="132" height="15"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{nombre_cliente}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="42" width="84" height="15"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Número de Doc:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="84" y="42" width="132" height="15"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{numero_documento}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="401" y="0" width="74" height="15"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de Ingreso:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="475" y="0" width="80" height="14"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{fecha_ingreso}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="401" y="15" width="74" height="15"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de Entrega:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="475" y="15" width="80" height="15"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{fecha_entrega}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="159" splitType="Stretch">
+			<staticText>
+				<reportElement x="202" y="0" width="130" height="15"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Datos del Dispositivo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="30" width="84" height="15"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CODIGO DE LA PC:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="55" width="84" height="15"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Alm del Disco:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="84" y="30" width="100" height="15"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{id_pc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="84" y="55" width="100" height="15"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{pc_alma_disco}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="80" width="84" height="15"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Alm de RAM:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="84" y="80" width="100" height="15"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{pc_alma_ram}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="106" width="84" height="15"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Alm de Tarj Vid:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="84" y="106" width="100" height="15"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{pc_alma_tarjetatavi}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="216" y="31" width="84" height="13"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CODIGO DE LAPTOP:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="401" y="32" width="74" height="15"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CODIGO DE IMP:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="300" y="31" width="83" height="13"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{id_laptop}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="475" y="32" width="80" height="14"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{id_impresora}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="216" y="55" width="84" height="15"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Alm del Disco:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="216" y="80" width="84" height="15"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Alm de RAM:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="301" y="55" width="100" height="15"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{laptop_alma_disco}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="301" y="80" width="100" height="15"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{laptop_alma_ram}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="401" y="55" width="47" height="15"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Modelo:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="448" y="55" width="96" height="15"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{impresora_modelo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="102" y="1" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[cargador]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="112" y="1" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[web_cam]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="113" y="1" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[bateria]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="275" y="1" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[bluetooth]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="277" y="1" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[red]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="432" y="1" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[accesori]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="440" y="1" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[color]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<staticText>
+				<reportElement x="202" y="0" width="130" height="15"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Accesorios]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="27" width="84" height="15"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cargador]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="102" y="33" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{cargador}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="112" y="65" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{web_cam}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="113" y="93" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{bateria}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="275" y="37" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{bluetooth}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="277" y="85" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{red}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="432" y="37" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{accesori}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="440" y="76" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{color}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<textField>
+				<reportElement x="41" y="2" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{observacion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="49" y="25" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{cambios_ralizados}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="176" y="9" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="267" y="13" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{a_cuenta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="379" y="23" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{saldo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="22" width="555" height="20"/>
+				<textElement>
+					<font isBold="false" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[NOTA: LA EMPRESA NO SE RESPONSABILIZA POR EL EQUIPO QUE NO SEA RETIRADO PASADO LOS 2 MESES]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
